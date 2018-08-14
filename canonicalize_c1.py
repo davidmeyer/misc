@@ -115,6 +115,7 @@ def main(argv):
 #	field (in their exported csvs), and keep a running total for
 #	canonicalized_description in 
 #	canonicalizedDict.get(canonicalized_description))
+#
 
 	canonicalized_description = ""
 	canonicalizedDict         = {}		# canonicalized names and sums
