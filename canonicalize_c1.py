@@ -4,7 +4,7 @@
 #	Canonicalize and sum up the descriptions from different
 #	vendors that you get if you export a csv from Capitalone. 
 #	The source .csv is from https://www.capitalone.com. Format of
-#	the csv output at the end (print_csv) is designed for excel 
+#	the csv output at the end (df.to_csv) is designed for excel 
 #	tables of various types. 
 #	
 #	David Meyer
