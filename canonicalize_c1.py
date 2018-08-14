@@ -79,14 +79,14 @@ def main(argv):
 #	Note: -h and --help are there by default
 #
 
-	parser.add_argument("-f",
-			    "--file",
+	parser.add_argument("-o",
+			    "--ofile",
 			    action  = "store",
-			    dest    = "file",
+			    dest    = "ofile",
 	                    help    = "output file (default: sys.stdout)",
 			    default = sys.stdout)
-	results    = parser.parse_args()
-	output_csv = results.file		# default to sys.stdout
+	results = parser.parse_args()
+	ofile   = results.ofile			# default to sys.stdout
 
 #
 #	Now fire up the csv reader
@@ -133,7 +133,7 @@ def main(argv):
 #	convert dataframe to csv for use with excel
 #
 
-	df.to_csv(output_csv, float_format='%.2f', header = False)
+	df.to_csv(ofile, float_format='%.2f', header = False)
 
 #
 #	
