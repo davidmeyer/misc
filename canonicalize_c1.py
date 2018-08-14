@@ -3,8 +3,9 @@
 #
 #	canonicalize_c1.py --
 #
-#	Canonicalize and sum up the "descriptions". The fields of the
-#	rows of the csv from capitalone.come are:
+#	Canonicalize and sum up the "descriptions". The fields of
+#	interest here in the rows of the csv from capitalone.com 
+#	are:
 #
 #		row[3]: the description, used as a key here
 #		row[5]: the amount debited (None if credit)
