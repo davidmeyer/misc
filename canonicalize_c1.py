@@ -1,15 +1,15 @@
 #! /usr/local/bin/python
 
 #
-#	Canonicalize and sum up the "descriptions" from different
-#	vendors that you get if you export a csv from CapitalOne. 
-#	The source .csv is from https://www.capitalone.com. Format of
-#	the csv output at the end (df.to_csv) is designed for excel 
-#	tables of various types. 
+#	Canonicalize and sum up the "descriptions" (row[3]) from
+#	different vendors that you get if you export a csv from
+#	CapitalOne. The source .csv is from
+#	https://www.capitalone.com. Format of the csv output at the
+#	end (df.to_csv) is designed for excel tables of various types. 
 #	
 #	David Meyer
 #	dmm@1-4-5.net
-#	Sun Aug 12 14:36:01 PDT 2018
+#	Fri Aug 10 14:36:01 PDT 2018
 #	$Header: $
 #
 
