@@ -40,7 +40,7 @@ def canonicalize_item(item):
 	item = re.sub(r'wholefds*',                  r'wholefoods', item) 
 	item = re.sub(r'starbucks[#a-z0-9\s\t]*',    r'starbucks', item) 
 	item = re.sub(r'trader joe\'s[a-z\s\t]+',    r'trader joes', item) 
-        return(item)
+	return(item)
 
 #
 #	print_csv(Dict) --
