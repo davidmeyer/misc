@@ -136,10 +136,10 @@ def main(argv):
 
 	parser.add_argument("-f",
 			    "--file",
-			    action = "store",
-			    dest   = "file",
-	                    help   = "output file (default: sys.stdout)",
-			    default=sys.stdout)
+			    action  = "store",
+			    dest    = "file",
+	                    help    = "output file (default: sys.stdout)",
+			    default = sys.stdout)
 	results    = parser.parse_args()
 	output_csv = results.file		# default to sys.stdout
 
