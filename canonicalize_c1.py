@@ -1,11 +1,19 @@
 #! /usr/local/bin/python
 
 #
-#	Canonicalize and sum up the "descriptions" (row[3]) from
-#	different vendors that you get if you export a csv from
-#	CapitalOne. The source .csv is from
-#	https://www.capitalone.com. Format of the csv output at the
-#	end (df.to_csv) is designed for excel tables of various types. 
+#	canonicalize_c1.py --
+#
+#	Canonicalize and sum up the "descriptions". The rows of the
+#	csv are:
+#
+#		row[3]: the description, used as a key here
+#		row[5]: the amount debited (None if credit)
+#		row[6]: the amount credited (not used here)
+#
+#	in the csv from capitalone.come. 
+#
+#	The format of the csv output at the end (df.to_csv) is
+#	designed for excel tables of various types.   
 #	
 #	David Meyer
 #	dmm@1-4-5.net
