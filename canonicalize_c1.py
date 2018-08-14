@@ -10,7 +10,6 @@
 #		row[5]: the amount debited (None if credit)
 #		row[6]: the amount credited (not used here)
 #
-#
 #	The format of the csv output at the end (df.to_csv) is
 #	designed for excel tables of various types.   
 #	
