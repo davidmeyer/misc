@@ -1,8 +1,8 @@
 #! /usr/local/bin/python
 
 #
-#	Canonicalize and sum up the descriptions from different
-#	vendors that you get if you export a csv from Capitalone. 
+#	Canonicalize and sum up the "descriptions" from different
+#	vendors that you get if you export a csv from CapitalOne. 
 #	The source .csv is from https://www.capitalone.com. Format of
 #	the csv output at the end (df.to_csv) is designed for excel 
 #	tables of various types. 
