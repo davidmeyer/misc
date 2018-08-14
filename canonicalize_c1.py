@@ -32,7 +32,7 @@ import matplotlib.pyplot as plt
 #
 
 def canonicalize_item(item):
-        item = item.lower().rstrip()
+	item = item.lower().rstrip()
 	item = re.sub(r'[#0-9]*',                    r'', item)
 	item = re.sub(r'sq[a-z\t\s\*]*sq[\t\s\*]*' , r'', item)
 	item = re.sub(r'target*',                    r'target', item) 
