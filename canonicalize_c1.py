@@ -116,7 +116,7 @@ def main(argv):
 #	canonicalized_description in 
 #	canonicalizedDict.get(canonicalized_description))
 
-        canonicalized_description = ""
+	canonicalized_description = ""
 	canonicalizedDict         = {}		# canonicalized names and sums
 	sum                       = float(0)	# running sum
 
