@@ -13,74 +13,32 @@
 #	$Header: $
 #
 
-import csv
-import os
 import sys
-import time
-import io
-import datetime 
+import csv
 import re
-import getpass
-import pwd
 import argparse
 import pandas as pd
-import matplotlib.pyplot as plt
 
 #
 #	There are weird patters in the description fields. this
 #	function tries to remove them. Square has at least 4 different
-#	patterns AFICT.
+#	patterns AFICT. Better would be a CFG describing what the 
+#	Descriptions look like.
 #
 
 def canonicalize_item(item):
 	item = item.lower().rstrip()
-	item = re.sub(r'[#0-9]*',                    r'', item)
-	item = re.sub(r'sq[a-z\t\s\*]*sq[\t\s\*]*' , r'', item)
-	item = re.sub(r'target*',                    r'target', item) 
-	item = re.sub(r'subway*',                    r'subway', item) 
-	item = re.sub(r'wholefds*',                  r'wholefoods', item) 
-	item = re.sub(r'starbucks[#a-z0-9\s\t]*',    r'starbucks', item) 
+	item = re.sub(r'[#0-9]*',                    r'',            item)
+	item = re.sub(r'sq[a-z\t\s\*]*sq[\t\s\*]*' , r'',            item)
+	item = re.sub(r'target*',                    r'target',      item) 
+	item = re.sub(r'subway*',                    r'subway',      item) 
+	item = re.sub(r'wholefds*',                  r'wholefoods',  item) 
+	item = re.sub(r'starbucks[#a-z0-9\s\t]*',    r'starbucks',   item) 
 	item = re.sub(r'trader joe\'s[a-z\s\t]+',    r'trader joes', item) 
 	return(item)
 
 #
-#	date and comment stuff
-#
-
-def format_comment():
-	now               = datetime.datetime.now()
-	date_string       = now.strftime('%Y-%m-%d')
-	who               = pwd.getpwuid(os.getuid())[4]
-	email             = "{}@1-4-5.net".format(getpass.getuser())
-	comment_string    = \
-	"#\n#\tCapitalOne Savor csv\n#\n#\n#\n#\t{}\n#\t{}\n#\t{}\n#\n"
-	return(comment_string.format(who,email,date_string))
-
-#
-#	write a comment at the front of the file
-#
-#	don't know if this works with excel (what is the 
-#	excel comment character).
-#
-#
-
-def csv_comment(file):
-	try:
-		f = open(file, 'r+')
-		file_data = f.read()
-		f.seek(0, 0)
-		f.write(format_comment().rstrip('\r\n') + '\n' + file_data)
-	except IOError as e:
-		print "I/O error({0}): {1}".format(e.errno, e.strerror)
-	except ValueError:
-		print "Could not convert data to an integer."
-	except:
-		print "Unexpected error:", sys.exc_info()[0]
-		raise
-
-#
 #	main(argv) --
-#
 #
 
 def main(argv):
@@ -90,7 +48,6 @@ def main(argv):
 #
 
 	DEBUG			= 0
-	ADD_COMMENT		= 0
 
 #
 #	Use these data structures to canonicalize CapitalOne's description 
@@ -172,10 +129,9 @@ def main(argv):
 
 	df.to_csv(output_csv, float_format='%.2f', header = False)
 
-	if (ADD_COMMENT): 
-		csv_comment(output_csv)
 #
+#	
 #
-#
+
 if __name__ == "__main__":
         main(sys.argv)
