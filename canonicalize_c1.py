@@ -52,8 +52,7 @@ def main(argv):
 #
 #	Use these data structures to canonicalize CapitalOne's description 
 #	field (in their exported csvs), and keep a running total for
-#	canonicalized_description in 
-#	canonicalizedDict.get(canonicalized_description))
+#	canonicalized_description in canonicalizedDict.get(...))
 #
 
 	canonicalized_description = ""
