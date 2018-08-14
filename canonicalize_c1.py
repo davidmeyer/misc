@@ -102,7 +102,7 @@ def main(argv):
         for row in reader:
 		try:
 		    sum = float(row[5])
-		except ValueError:		# discard this row
+		except ValueError:	      # discard this row (its a credit)
 	            continue
 
 #
