@@ -82,11 +82,11 @@ def main(argv):
 	parser.add_argument("-o",
 			    "--ofile",
 			    action  = "store",
-			    dest    = "ofile",
+			    dest    = "of",
 	                    help    = "output file (default: sys.stdout)",
 			    default = sys.stdout)
 	results = parser.parse_args()
-	ofile   = results.ofile			# default to sys.stdout
+	ofile   = results.of			# default to sys.stdout
 
 #
 #	Now fire up the csv reader
