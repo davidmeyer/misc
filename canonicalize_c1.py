@@ -6,7 +6,8 @@
 #	The source .csv is from https://www.capitalone.com. Format of
 #	the csv output at the end (print_csv) is designed for excel 
 #	tables of various types. 
-#
+#	
+#	David Meyer
 #	dmm@1-4-5.net
 #	Sun Aug 12 14:36:01 PDT 2018
 #	$Header: $
@@ -43,31 +44,9 @@ def canonicalize_item(item):
 	return(item)
 
 #
-#	print_csv(Dict) --
-#
-#	Print Dict as a key,value csv. Sort in reverse order.
-#
-
-def print_csv(Dict):
-	for key, value in sorted(Dict.iteritems(),
-				 key     = lambda (k,v): (v,k),
-				 reverse = True):
-		print "%s,%.2f" % (key, value)
-
-#
-#	print_df_as_csv(df) --
-#
-#	Lots of ways to do this. This seems easist.
-#
-#
-def print_df_as_csv(df):
-	for index, row in df.iterrows():
-	   print "{0},{1}".format(index, float(row[0]))
-
-
-#
 #	date and comment stuff
 #
+
 def format_comment():
 	now               = datetime.datetime.now()
 	date_string       = now.strftime('%Y-%m-%d')
@@ -76,7 +55,7 @@ def format_comment():
 	comment_string    = \
 	"#\n#\tCapitalOne Savor csv\n#\n#\n#\n#\t{}\n#\t{}\n#\t{}\n#\n"
 	return(comment_string.format(who,email,date_string))
-#
+
 #
 #	write a comment at the front of the file
 #
@@ -84,6 +63,7 @@ def format_comment():
 #	excel comment character).
 #
 #
+
 def csv_comment(file):
 	try:
 		f = open(file, 'r+')
@@ -97,6 +77,7 @@ def csv_comment(file):
 	except:
 		print "Unexpected error:", sys.exc_info()[0]
 		raise
+
 #
 #	main(argv) --
 #
@@ -107,6 +88,7 @@ def main(argv):
 #
 #	Be lazy, get control globals
 #
+
 	DEBUG			= 0
 	ADD_COMMENT		= 0
 
@@ -183,7 +165,6 @@ def main(argv):
 				    columns = ['Sum'],
 				    orient  = 'index') \
 				    .sort_values('Sum', ascending = False)
-
 
 #
 #	convert dataframe to csv for use with excel
