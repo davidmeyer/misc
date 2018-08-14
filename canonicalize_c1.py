@@ -32,7 +32,7 @@ def canonicalize_item(item):
 	item = re.sub(r'sq[a-z\t\s\*]*sq[\t\s\*]*' , r'',            item)
 	item = re.sub(r'target*',                    r'target',      item) 
 	item = re.sub(r'subway*',                    r'subway',      item) 
-	item = re.sub(r'wholefds*',                  r'wholefoods',  item) 
+	item = re.sub(r'wholefds[\s\ta-z]+',         r'wholefoods',  item) 
 	item = re.sub(r'starbucks[#a-z0-9\s\t]*',    r'starbucks',   item) 
 	item = re.sub(r'trader joe\'s[a-z\s\t]+',    r'trader joes', item) 
 	return(item)
