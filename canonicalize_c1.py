@@ -118,7 +118,7 @@ def main(argv):
 
         canonicalized_description = ""
 	canonicalizedDict         = {}		# canonicalized names and sums
-	sum			  = float(0)	# running sum
+	sum                       = float(0)	# running sum
 
 #
 #	Simple a (really simple) arg parser
