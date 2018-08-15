@@ -20,6 +20,7 @@
 #	$Header: $
 
 import sys
+import os
 import csv
 import re
 import argparse
@@ -103,13 +104,14 @@ def main(argv):
 #	if could also be a string, so we have to open the
 #	corresponding file
 #
+
 	if (ifile != sys.stdin):
 		try: 
 			ifile = open(ifile, "r")
 		except IOError:
-			print "Can't open", ifile
+			print "{}: Can't open {}" \
+			      .format(os.path.basename(sys.argv[0]), ifile)
 			return
-
 
 #
 #	Now fire up the csv reader
