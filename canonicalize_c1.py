@@ -13,7 +13,22 @@
 #
 #	The format of the csv output at the end (df.to_csv) is
 #	designed for excel tables of various types.   
-#	
+#
+#	usage: canonicalize_c1.py [-h] [-o OFILE] [-i IFILE]
+#
+#	optional arguments:
+#	  -h, --help              show this help message and exit
+#	  -o OFILE, --ofile OFILE output file (default: sys.stdout)
+#	  -i IFILE, --ifile IFILE input file (default: sys.stdin)
+#
+#	For example: 
+#
+#		canonicalize_c1.py -i input_csv -o output_csv
+#		canonicalize_c1.py -ifile input_csv -ofile output_csv
+#		canonicalize_c1.py < input_csv > output_csv 
+#		canonicalize_c1.py < input_csv -o output_csv
+#		...
+#
 #	David Meyer
 #	dmm@1-4-5.net
 #	Fri Aug 10 14:36:01 PDT 2018
