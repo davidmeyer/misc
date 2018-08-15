@@ -1,4 +1,4 @@
-! /usr/local/bin/python
+#! /usr/local/bin/python
 
 #
 #	canonicalize_c1.py --
