@@ -9,19 +9,22 @@
 #
 #		Transaction Date,Posted Date,Card No.,Description,Category,Debit,Credit
 #
-#	We are interested in :
+#	We are interested in the following fields:
 #
 #		row[3]: the description, used as a key here (canonicalizedDict)
 #		row[5]: the amount debited (None if credit)
 #		row[6]: the amount credited (not used here)
 #
 #	The format of the csv output at the end (df.to_csv) is
-#	designed for excel tables of various types.   
+#	designed for excel (or anythinng else that can read csvs)
+#	tables of various types.
+#
+#	Usage looks like:
 #
 #		usage: canonicalize_c1.py [-h] [-o OFILE] [-i IFILE]
 #
 #		optional arguments:
-#		  -h, --help              show this help message and exit
+#		  -h,       --help        show this help message and exit
 #		  -o OFILE, --ofile OFILE output file (default: sys.stdout)
 #		  -i IFILE, --ifile IFILE input file  (default: sys.stdin)
 #
@@ -32,6 +35,7 @@
 #		canonicalize_c1.py < input_csv > output_csv 
 #		canonicalize_c1.py < input_csv -o output_csv
 #		...
+#
 #
 #	David Meyer
 #	dmm@1-4-5.net
