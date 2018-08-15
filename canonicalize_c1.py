@@ -193,16 +193,18 @@ def main(argv):
 				    .sort_values('Sum', ascending = False)
 
 #
-#	convert dataframe to csv for use with excel
+#	convert dataframe to csv for use with spreadsheets of various
+#	kinds 
 #
 
 	df.to_csv(ofile, float_format='%.2f', header = False)
-	
+
 #
 #	
 #
 
 if __name__ == "__main__":
         main(sys.argv)
+
 
 
