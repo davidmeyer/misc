@@ -18,7 +18,6 @@
 #	dmm@1-4-5.net
 #	Fri Aug 10 14:36:01 PDT 2018
 #	$Header: $
-#
 
 import sys
 import csv
@@ -73,7 +72,7 @@ def main(argv):
 	parser = argparse.ArgumentParser()
 
 #
-#	Add a file argument. -f or --file. Default
+#	Add a file argument. -o or --ofile. Default
 #	to sys.stdout.
 #
 #	Note: -h and --help are there by default
@@ -82,17 +81,41 @@ def main(argv):
 	parser.add_argument("-o",
 			    "--ofile",
 			    action  = "store",
-			    dest    = "of",
+			    dest    = "ofile",
 	                    help    = "output file (default: sys.stdout)",
 			    default = sys.stdout)
+
+
+	parser.add_argument("-i",
+			    "--ifile",
+			    action  = "store",
+			    dest    = "ifile",
+	                    help    = "input file (default: sys.stdin)",
+			    default = sys.stdin)
+
+
 	results = parser.parse_args()
-	ofile   = results.of			# default to sys.stdout
+	ofile   = results.ofile			# default to sys.stdout
+        ifile   = results.ifile
 
 #
+#	ifile could be sys.stdin, which is an open file
+#	if could also be a string, so we have to open the
+#	corresponding file
+#
+	if (ifile != sys.stdin):
+		try: 
+			ifile = open(ifile, "r")
+		except IOError:
+			print "Can't open", ifile
+			return
+
+
+
 #	Now fire up the csv reader
 #
 
-        reader = csv.reader(sys.stdin, delimiter=',', quotechar='"')
+        reader = csv.reader(ifile, delimiter=',', quotechar='"')
 
 #
 #	For any row that is a credit row[5] = None (the credit amount
