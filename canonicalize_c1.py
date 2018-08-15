@@ -96,7 +96,7 @@ def main(argv):
 
 	results = parser.parse_args()
 	ofile   = results.ofile			# default to sys.stdout
-        ifile   = results.ifile
+	ifile   = results.ifile			# default to sys.stdin
 
 #
 #	ifile could be sys.stdin, which is an open file
@@ -111,7 +111,7 @@ def main(argv):
 			return
 
 
-
+#
 #	Now fire up the csv reader
 #
 
