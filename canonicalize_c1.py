@@ -1,4 +1,4 @@
-#! /usr/local/bin/python
+! /usr/local/bin/python
 
 #
 #	canonicalize_c1.py --
@@ -31,6 +31,9 @@ import pandas as pd
 #	function tries to remove them. Square has at least 4 different
 #	patterns AFICT. Better would be a CFG describing what the 
 #	Descriptions look like.
+#
+#	Bug: if the description starts with [0-9]+ this rips off
+#	the leading digits, which is a bug.
 #
 
 def canonicalize_item(item):
@@ -73,8 +76,7 @@ def main(argv):
 	parser = argparse.ArgumentParser()
 
 #
-#	Add a file argument. -o or --ofile. Default
-#	to sys.stdout.
+#	Add a file handeling arguments.
 #
 #	Note: -h and --help are there by default
 #
@@ -100,9 +102,21 @@ def main(argv):
 	ifile   = results.ifile			# default to sys.stdin
 
 #
+#	However...
+#
 #	ifile could be sys.stdin, which is an open file
 #	if could also be a string, so we have to open the
-#	corresponding file
+#	corresponding file.
+#
+#	Bug: if (ifile != sys.stdin) and ifile is succesfully
+#	opened, then ifile doesn't get closed. This is kind of a bug.    
+#
+#	Seems that something like
+#
+#		with open(ifile, 'r+') as f:
+#			do_stuff(f)
+#
+#	would be a better solution, but isn't quite what we want.
 #
 
 	if (ifile != sys.stdin):
@@ -159,7 +173,7 @@ def main(argv):
 #
 
 	df.to_csv(ofile, float_format='%.2f', header = False)
-
+	
 #
 #	
 #
