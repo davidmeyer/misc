@@ -80,7 +80,7 @@ def main(argv):
 #	Be lazy, get control globals
 #
 
-	DEBUG			= 0
+	DEBUG			  = 0
 
 #
 #	Use these data structures to canonicalize CapitalOne's description 
