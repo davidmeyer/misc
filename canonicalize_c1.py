@@ -56,20 +56,19 @@ import pandas as pd
 #	patterns AFICT. Better would be a CFG describing what the 
 #	Descriptions look like.
 #
-#	Bug: if the description starts with [0-9]+ this rips off
-#	the leading digits, which is a bug.
 #
 
 def canonicalize_item(item):
 	item = item.lower().rstrip()
-	item = re.sub(r'[#0-9]*',                    r'',            item)
-	item = re.sub(r'sq[a-z\t\s\*]*sq[\t\s\*]*' , r'',            item)
-	item = re.sub(r'target*',                    r'target',      item) 
-	item = re.sub(r'subway*',                    r'subway',      item) 
-	item = re.sub(r'wholefds[a-z\s\t]+',         r'wholefoods',  item) 
-	item = re.sub(r'starbucks[#a-z0-9\s\t]*',    r'starbucks',   item) 
-	item = re.sub(r'trader joe\'s[a-z\s\t]+',    r'trader joes', item) 
-	return(item.strip())
+	item = re.sub(r'[#0-9]+$',                    r'',            item)
+	item = re.sub(r'sq[a-z\t\s\*]*sq[\t\s\*]*' ,  r'',            item)
+	item = re.sub(r'target*',                     r'target',      item) 
+	item = re.sub(r'subway*',                     r'subway',      item) 
+	item = re.sub(r'wholefds[a-z\s\t]+',          r'wholefoods',  item) 
+	item = re.sub(r'starbucks[#a-z0-9\s\t]+',     r'starbucks',   item) 
+	item = re.sub(r'trader joe\'s[#a-z0-9\s\t]+', r'trader joes', item) 
+	item = item.strip()			# just in case
+	return(item)
 
 #
 #	main(argv) --
