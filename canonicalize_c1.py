@@ -69,7 +69,7 @@ def canonicalize_item(item):
 	item = re.sub(r'wholefds[a-z\s\t]+',         r'wholefoods',  item) 
 	item = re.sub(r'starbucks[#a-z0-9\s\t]*',    r'starbucks',   item) 
 	item = re.sub(r'trader joe\'s[a-z\s\t]+',    r'trader joes', item) 
-	return(item)
+	return(item.strip())
 
 #
 #	main(argv) --
@@ -178,7 +178,7 @@ def main(argv):
 #	current sum (which again is float(row[5])). 
 #
 
-                canonicalized_description = canonicalize_item(row[3]).strip()
+                canonicalized_description = canonicalize_item(row[3])
                 if  (canonicalizedDict.get(canonicalized_description)): 
                         sum += canonicalizedDict.get(canonicalized_description)
                 canonicalizedDict.update({canonicalized_description : sum})
